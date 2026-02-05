@@ -7,127 +7,97 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://upload.wikimedia.org;">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <title>المصمم أحمد محمد | مطور ويب (Dark Mode)</title>
-    <meta name="description" content="مطور ويب ومصمم جرافيك. خبرة 5 سنوات في بناء المنصات والحلول الرقمية.">
+    <title>المصمم أحمد محمد | خبير أمن معلومات ومطور ويب</title>
+    <meta name="description" content="أحمد محمد، مطور ويب وخبير في تأمين الشبكات والسيرفرات. بناء مواقع مؤمنة ضد الاختراق بأحدث تقنيات الحماية.">
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
         /* ========================================= */
-        /* CSS Styles (Dark Theme) */
+        /* CSS Styles (Dark Security Theme) */
         /* ========================================= */
         * { box-sizing: border-box; }
         
         body { 
             font-family: 'Tajawal', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #050505; /* لون الخلفية أسود */
-            color: #fff; /* لون النص أبيض */
-            overflow-x: hidden;
-            -webkit-user-select: none;
-            user-select: none; 
+            margin: 0; padding: 0; 
+            background-color: #050505; color: #fff; 
+            overflow-x: hidden; user-select: none; 
         }
 
-        /* --- الشبكة الخلفية (تغطي كل الموقع) --- */
+        /* الشبكة الخلفية */
         #networkCanvas {
-            position: fixed; /* ثابتة لا تتحرك مع السكرول */
-            top: 0; left: 0;
+            position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
-            z-index: -1; /* خلف كل العناصر */
-            opacity: 0.8;
+            z-index: -1; opacity: 0.7;
         }
 
-        /* --- الهيدر المصغر --- */
+        /* الهيدر */
         header {
-            position: relative;
-            padding: 40px 20px; /* تصغير المساحة */
-            text-align: center;
-            /* تدرج لوني خفيف جداً في الأعلى فقط */
-            background: linear-gradient(to bottom, rgba(15, 12, 41, 0.9), transparent);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 20px; text-align: center;
+            background: linear-gradient(to bottom, rgba(0, 20, 40, 0.9), transparent);
         }
+        h1 { font-size: 2.5rem; margin: 0; font-weight: 900; color: #fff; letter-spacing: 1px; }
+        .subtitle { font-size: 1.1rem; color: #00ffcc; margin-top: 5px; font-weight: bold; text-shadow: 0 0 10px rgba(0, 255, 204, 0.5); }
 
-        h1 { font-size: 2.2rem; margin: 0; font-weight: 900; letter-spacing: 1px; }
-        .subtitle { font-size: 1rem; color: #aaa; margin-top: 5px; }
-
-        /* --- الحاويات والكروت (نظام الزجاج) --- */
+        /* الكروت */
         .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         
-        /* تصميم الكارت الزجاجي الشفاف */
         .glass-card {
-            background: rgba(20, 20, 20, 0.6); /* لون أسود نصف شفاف */
-            backdrop-filter: blur(10px); /* تشويش الخلفية */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* إطار خفيف */
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
+            background: rgba(15, 15, 20, 0.7); backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 204, 0.1); /* إطار نيون خفيف */
+            padding: 40px; border-radius: 16px; margin-bottom: 40px; text-align: center;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
         }
 
-        .glass-card h2 { color: #fff; margin-top: 0; }
-        .glass-card p { color: #ccc; line-height: 1.6; }
+        .glass-card h2 { color: #fff; margin-top: 0; font-size: 1.8rem; }
+        .bio-text { color: #ccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px; }
+        .highlight { color: #00ffcc; font-weight: bold; }
 
-        .btn-cta {
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            color: #fff; padding: 12px 35px; text-decoration: none;
-            border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .btn-cta:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(37, 211, 102, 0.7); }
-
-        /* --- الخدمات --- */
-        .section-title { text-align: center; margin: 50px 0 30px; font-size: 1.8rem; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        /* أزرار التواصل الجديدة */
+        .contact-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         
-        .services-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .service-card {
-            background: rgba(30, 30, 30, 0.7);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 25px; border-radius: 12px; width: 300px;
-            transition: transform 0.3s, border-color 0.3s;
+        .btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 12px 25px; border-radius: 50px; text-decoration: none;
+            font-weight: bold; color: #fff; transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 160px;
         }
-        .service-card:hover { 
-            transform: translateY(-5px); 
-            border-color: #25D366; 
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.1);
-        }
-        .service-card h3 { color: #25D366; margin-bottom: 10px; }
-        .service-card p { color: #bbb; font-size: 0.95rem; }
 
-        /* --- قائمة الأعمال --- */
+        .btn-call {
+            background: linear-gradient(45deg, #FFD700, #FFA500); /* ذهبي فخم */
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            color: #000; /* النص أسود ليكون واضحاً على الذهبي */
+        }
+        .btn-telegram { background: linear-gradient(45deg, #229ED9, #0088cc); box-shadow: 0 0 15px rgba(34, 158, 217, 0.3); }
+        .btn-whatsapp { background: linear-gradient(45deg, #25D366, #128C7E); box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
+
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        /* الخدمات */
+        .services-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
+        .service-card {
+            background: rgba(30, 35, 40, 0.6); border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px; border-radius: 12px; width: 300px; text-align: center;
+            transition: 0.3s;
+        }
+        .service-card:hover { border-color: #00ffcc; box-shadow: 0 0 20px rgba(0, 255, 204, 0.1); transform: translateY(-5px); }
+        .service-card h3 { color: #00ffcc; margin-bottom: 10px; }
+
+        /* المشاريع */
         .portfolio-item { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin: 10px auto; padding: 15px; border-radius: 8px; max-width: 600px; 
-            display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffcc;
+            margin: 15px auto; padding: 20px; border-radius: 8px; max-width: 600px; 
+            display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #fff;
             transition: background 0.3s;
         }
         .portfolio-item:hover { background: rgba(255, 255, 255, 0.08); }
         
-        .tag { font-size: 0.75rem; background: #333; color: #fff; padding: 4px 10px; border-radius: 4px; border: 1px solid #444; }
+        .tag { font-size: 0.75rem; background: #000; border: 1px solid #333; color: #aaa; padding: 4px 10px; border-radius: 4px; }
 
-        /* --- الفوتر --- */
-        footer { 
-            text-align: center; margin-top: 80px; padding: 40px; 
-            background: #000; color: #666; border-top: 1px solid #222; 
-        }
-
-        /* --- زر الواتساب --- */
-        .whatsapp-float {
-            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
-            background-color: #25d366; color: #FFF; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5); z-index: 100;
-            transition: all 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); }
-        .whatsapp-float img { width: 35px; height: 35px; }
-
+        /* الفوتر */
+        footer { text-align: center; margin-top: 80px; padding: 30px; color: #555; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
@@ -135,145 +105,117 @@
     <canvas id="networkCanvas"></canvas>
 
     <header>
-        <div class="header-content">
-            <h1>المصمم أحمد محمد</h1>
-            <p class="subtitle">Full Stack Developer & Graphic Designer</p>
-        </div>
+        <h1>المصمم أحمد محمد</h1>
+        <p class="subtitle">خبير أمن سيبراني & مطور ويب شامل</p>
     </header>
 
     <div class="container">
         
-        <div style="height: 40px;"></div>
-
         <section class="glass-card">
-            <h2>خبير في الحلول الرقمية</h2>
-            <p>
-                خبرة 5 سنوات في تحويل الأفكار المعقدة إلى أنظمة ويب قوية.
-                <br> متخصص في بناء المنصات التعليمية، لوحات التحكم، والمتاجر الإلكترونية.
+            <h2>لا أبني المواقع فقط.. بل أقوم بتحصينها</h2>
+            <p class="bio-text">
+                أنا مطور ويب بخبرة 5 سنوات، متخصص بشكل دقيق في <span class="highlight">أمن المعلومات وتأمين الشبكات</span>. 
+                عندما أعمل على مشروعك، فأنا أضمن لك موقعاً ليس فقط جذاباً وسريعاً، بل <span class="highlight">قلعة رقمية</span> يصعب اختراقها. 
+                أقوم بفحص الثغرات، تشفير البيانات، وحماية السيرفرات من الهجمات المتقدمة.
             </p>
-            <a href="https://wa.me/201128381838" class="btn-cta" target="_blank">تواصل واتساب</a>
+
+            <div class="contact-buttons">
+                <a href="tel:+201128381838" class="btn btn-call">
+                    📞 اتصال مباشر
+                </a>
+                <a href="https://t.me/Ahmedddd50" class="btn btn-telegram" target="_blank">
+                    ✈️ Telegram
+                </a>
+                <a href="https://wa.me/201128381838" class="btn btn-whatsapp" target="_blank">
+                    💬 WhatsApp
+                </a>
+            </div>
         </section>
 
-        <h3 class="section-title">مجالات الخبرة</h3>
+        <h3 style="text-align:center; color:#fff; margin-top:50px;">لماذا تختارني؟</h3>
         <div class="services-grid">
             <div class="service-card">
-                <h3>💻 برمجة خاصة</h3>
-                <p>تطوير مواقع من الصفر باستخدام أحدث التقنيات لضمان السرعة والأمان.</p>
+                <h3>🛡️ تأمين الشبكات</h3>
+                <p style="color:#bbb;">فحص السيرفرات وإغلاق الثغرات الأمنية (Penetration Testing) وحماية ضد هجمات DDOS.</p>
             </div>
             <div class="service-card">
-                <h3>🔗 API & Tools</h3>
-                <p>بناء أدوات ويب مساعدة وربط الأنظمة ببعضها (Integration).</p>
+                <h3>🚀 سرعة وأداء</h3>
+                <p style="color:#bbb;">كتابة كود نظيف (Clean Code) يضمن تحميل الموقع في أجزاء من الثانية.</p>
             </div>
             <div class="service-card">
-                <h3>🎨 UI/UX Design</h3>
-                <p>تصميم واجهات عصرية تركز على تجربة المستخدم وجماليات الهوية.</p>
+                <h3>💻 تطوير متكامل</h3>
+                <p style="color:#bbb;">بناء منصات معقدة ومتاجر إلكترونية باستخدام أحدث تقنيات الويب.</p>
             </div>
         </div>
 
-        <h3 class="section-title">أحدث المشاريع</h3>
+        <h3 style="text-align:center; color:#fff; margin-top:50px;">أحدث المشاريع المؤمنة</h3>
         <div style="text-align: center;">
-            <div class="portfolio-item">
-                <span>✅ منصة <strong>Full Mark</strong></span>
-                <span class="tag">Education</span>
-            </div>
-            <div class="portfolio-item">
-                <span>✅ أداة <strong>Snap-Tik</strong></span>
-                <span class="tag">Tool</span>
-            </div>
-            <div class="portfolio-item">
-                <span>✅ متجر <strong>Tech Store</strong></span>
-                <span class="tag">E-Commerce</span>
-            </div>
+            
+            <a href="https://alwarsha-eight.vercel.app/" target="_blank" class="portfolio-item">
+                <span style="font-weight:bold;">🔗 مشروع "الورشة"</span>
+                <span class="tag">Platform</span>
+            </a>
+
+            <a href="https://saroakh-moaz.vercel.app/" target="_blank" class="portfolio-item">
+                <span style="font-weight:bold;">🔗 مشروع "صاروخ معاذ"</span>
+                <span class="tag">Web App</span>
+            </a>
+
         </div>
 
         <footer>
             <p>للتواصل: 01128381838</p>
-            <p>&copy; 2026 جميع الحقوق محفوظة</p>
+            <p>Security & Development by Ahmed Mohamed © 2026</p>
         </footer>
     </div>
 
-    <a href="https://wa.me/201128381838" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
-
     <script>
-        // 1. إعدادات الشبكة المتحركة
         const canvas = document.getElementById('networkCanvas');
         const ctx = canvas.getContext('2d');
         let w, h, particles;
         
-        // ألوان الشبكة: خليط بين السماوي والأخضر ليتناسب مع الأسود
-        const particleColor = 'rgba(0, 255, 200, 0.5)'; 
-        const lineColor = 'rgba(0, 255, 200,'; 
+        // لون الشبكة: أخضر نيون سايبر (Cyber Green)
+        const particleColor = 'rgba(0, 255, 204, 0.5)'; 
+        const lineColor = 'rgba(0, 255, 204,'; 
 
-        // دالة تحديث الحجم لتأخذ حجم الشاشة بالكامل
-        function resize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-        }
-
+        function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+        
         class Particle {
             constructor() {
-                this.x = Math.random() * w;
-                this.y = Math.random() * h;
-                this.vx = (Math.random() - 0.5) * 1; // سرعة بطيئة وهادئة
-                this.vy = (Math.random() - 0.5) * 1;
+                this.x = Math.random() * w; this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 1.5; this.vy = (Math.random() - 0.5) * 1.5;
                 this.size = Math.random() * 2 + 1;
             }
             update() {
                 this.x += this.vx; this.y += this.vy;
-                // عند الخروج من الشاشة يعود من الجهة الأخرى
                 if (this.x > w) this.x = 0; else if (this.x < 0) this.x = w;
                 if (this.y > h) this.y = 0; else if (this.y < 0) this.y = h;
             }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = particleColor;
-                ctx.fill();
-            }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = particleColor; ctx.fill(); }
         }
 
-        function init() {
-            resize();
-            particles = [];
-            // زيادة عدد النقاط لأن الشاشة أصبحت سوداء بالكامل
-            let count = window.innerWidth < 768 ? 50 : 100;
-            for (let i = 0; i < count; i++) particles.push(new Particle());
-        }
-
+        function init() { resize(); particles = []; let count = window.innerWidth < 768 ? 50 : 100; for (let i = 0; i < count; i++) particles.push(new Particle()); }
+        
         function animate() {
             ctx.clearRect(0, 0, w, h);
             particles.forEach((p, i) => {
                 p.update(); p.draw();
                 for (let j = i + 1; j < particles.length; j++) {
                     let d = Math.hypot(p.x - particles[j].x, p.y - particles[j].y);
-                    // رسم الخطوط عند الاقتراب
                     if (d < 120) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = lineColor + (1 - d/120) + ')';
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
+                        ctx.beginPath(); ctx.strokeStyle = lineColor + (1 - d/120) + ')';
+                        ctx.lineWidth = 0.5; ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
                     }
                 }
             });
             requestAnimationFrame(animate);
         }
 
-        window.addEventListener('resize', () => { resize(); init(); });
-        init();
-        animate();
-
-        // 2. كود الحماية (Anti-Theft)
+        window.addEventListener('resize', () => { resize(); init(); }); init(); animate();
+        
+        // Anti-Theft Protection
         document.addEventListener('contextmenu', e => e.preventDefault());
-        document.onkeydown = e => {
-            if(e.keyCode == 123) return false; 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; 
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; 
-        };
+        document.onkeydown = e => { if(e.keyCode == 123) return false; };
     </script>
 </body>
-                                                 </html>
-                                                 
+</html>
