@@ -9,175 +9,186 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <title>المصمم أحمد محمد | مطور ويب ومصمم جرافيك (خبرة 5 سنوات)</title>
-    <meta name="description" content="الموقع الرسمي للمصمم أحمد محمد. خدمات تصميم وتطوير مواقع الإنترنت، منصات تعليمية، وأدوات ويب متقدمة. خبرة 5 سنوات.">
-    <meta name="keywords" content="تصميم مواقع, برمجة, Full Mark, Snap-Tik, مطور ويب, جرافيك ديزاينر">
-    <meta name="author" content="Ahmed Mohamed">
+    <title>المصمم أحمد محمد | مطور ويب (Dark Mode)</title>
+    <meta name="description" content="مطور ويب ومصمم جرافيك. خبرة 5 سنوات في بناء المنصات والحلول الرقمية.">
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
         /* ========================================= */
-        /* CSS Styles */
+        /* CSS Styles (Dark Theme) */
         /* ========================================= */
         * { box-sizing: border-box; }
+        
         body { 
             font-family: 'Tajawal', sans-serif; 
             margin: 0; 
             padding: 0; 
-            background: #f4f4f4; 
-            color: #333; 
+            background-color: #050505; /* لون الخلفية أسود */
+            color: #fff; /* لون النص أبيض */
             overflow-x: hidden;
-            -webkit-user-select: none; /* منع تحديد النص */
-            -ms-user-select: none; 
+            -webkit-user-select: none;
             user-select: none; 
         }
 
-        /* الهيدر والشبكة الخلفية */
-        header {
-            position: relative;
-            height: 400px; /* ارتفاع الهيدر */
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-
+        /* --- الشبكة الخلفية (تغطي كل الموقع) --- */
         #networkCanvas {
-            position: absolute;
+            position: fixed; /* ثابتة لا تتحرك مع السكرول */
             top: 0; left: 0;
             width: 100%; height: 100%;
-            z-index: 1;
+            z-index: -1; /* خلف كل العناصر */
+            opacity: 0.8;
         }
 
-        .header-content {
+        /* --- الهيدر المصغر --- */
+        header {
             position: relative;
-            z-index: 2; /* فوق الشبكة */
-            padding: 20px;
+            padding: 40px 20px; /* تصغير المساحة */
+            text-align: center;
+            /* تدرج لوني خفيف جداً في الأعلى فقط */
+            background: linear-gradient(to bottom, rgba(15, 12, 41, 0.9), transparent);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        h1 { font-size: 3rem; margin: 0; font-weight: 900; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .subtitle { font-size: 1.2rem; color: #cfcfcf; margin-top: 10px; }
+        h1 { font-size: 2.2rem; margin: 0; font-weight: 900; letter-spacing: 1px; }
+        .subtitle { font-size: 1rem; color: #aaa; margin-top: 5px; }
 
-        /* المحتوى الرئيسي */
-        .container { max-width: 1100px; margin: -50px auto 0; padding: 20px; position: relative; z-index: 3; }
+        /* --- الحاويات والكروت (نظام الزجاج) --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         
-        .hero-card {
-            background: #fff;
-            padding: 40px;
+        /* تصميم الكارت الزجاجي الشفاف */
+        .glass-card {
+            background: rgba(20, 20, 20, 0.6); /* لون أسود نصف شفاف */
+            backdrop-filter: blur(10px); /* تشويش الخلفية */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* إطار خفيف */
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
 
-        .hero-card h2 { color: #333; margin-top: 0; }
-        .btn-cta {
-            background: #25D366; color: #fff;
-            padding: 15px 40px; text-decoration: none;
-            border-radius: 50px; font-weight: bold; font-size: 1.1rem;
-            display: inline-block; margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s;
-        }
-        .btn-cta:hover { transform: scale(1.05); background: #1da851; }
+        .glass-card h2 { color: #fff; margin-top: 0; }
+        .glass-card p { color: #ccc; line-height: 1.6; }
 
-        /* الأقسام */
-        .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; color: #222; }
+        .btn-cta {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: #fff; padding: 12px 35px; text-decoration: none;
+            border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-cta:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(37, 211, 102, 0.7); }
+
+        /* --- الخدمات --- */
+        .section-title { text-align: center; margin: 50px 0 30px; font-size: 1.8rem; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
         
         .services-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
         .service-card {
-            background: #fff; padding: 30px;
-            border-radius: 10px; width: 300px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s; border-top: 4px solid #25D366;
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px; border-radius: 12px; width: 300px;
+            transition: transform 0.3s, border-color 0.3s;
         }
-        .service-card:hover { transform: translateY(-10px); }
+        .service-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #25D366; 
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.1);
+        }
+        .service-card h3 { color: #25D366; margin-bottom: 10px; }
+        .service-card p { color: #bbb; font-size: 0.95rem; }
+
+        /* --- قائمة الأعمال --- */
+        .portfolio-item { 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 10px auto; padding: 15px; border-radius: 8px; max-width: 600px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            transition: background 0.3s;
+        }
+        .portfolio-item:hover { background: rgba(255, 255, 255, 0.08); }
         
-        .portfolio-list { list-style: none; padding: 0; text-align: center; }
-        .portfolio-item { background: #fff; margin: 10px auto; padding: 15px; border-radius: 8px; max-width: 600px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
-        .check-icon { color: #25D366; font-weight: bold; margin-left: 10px; }
+        .tag { font-size: 0.75rem; background: #333; color: #fff; padding: 4px 10px; border-radius: 4px; border: 1px solid #444; }
 
-        /* الفوتر */
-        footer { text-align: center; margin-top: 80px; padding: 40px; background: #222; color: #888; border-top: 5px solid #25D366; }
+        /* --- الفوتر --- */
+        footer { 
+            text-align: center; margin-top: 80px; padding: 40px; 
+            background: #000; color: #666; border-top: 1px solid #222; 
+        }
 
-        /* زر واتساب العائم */
+        /* --- زر الواتساب --- */
         .whatsapp-float {
             position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
             background-color: #25d366; color: #FFF; border-radius: 50%;
-            text-align: center; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 100; display: flex; align-items: center; justify-content: center;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5); z-index: 100;
             transition: all 0.3s;
         }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); }
         .whatsapp-float img { width: 35px; height: 35px; }
 
-        /* للموبايل */
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .hero-card { padding: 20px; }
-            .container { margin-top: -30px; }
-        }
     </style>
 </head>
 <body>
 
+    <canvas id="networkCanvas"></canvas>
+
     <header>
-        <canvas id="networkCanvas"></canvas>
         <div class="header-content">
             <h1>المصمم أحمد محمد</h1>
             <p class="subtitle">Full Stack Developer & Graphic Designer</p>
-            <p style="color: #25D366; font-weight: bold;">● متاح للعمل الحر</p>
         </div>
     </header>
 
     <div class="container">
-        <section class="hero-card">
-            <h2>5 سنوات من الخبرة في بناء الويب</h2>
-            <p style="color: #666; line-height: 1.6;">
-                مرحباً، أنا أحمد. أساعد الشركات والأفراد في تحويل أفكارهم إلى مشاريع رقمية ناجحة. 
-                تخصصي الدقيق هو بناء المنصات التعليمية وأدوات الويب المتقدمة.
+        
+        <div style="height: 40px;"></div>
+
+        <section class="glass-card">
+            <h2>خبير في الحلول الرقمية</h2>
+            <p>
+                خبرة 5 سنوات في تحويل الأفكار المعقدة إلى أنظمة ويب قوية.
+                <br> متخصص في بناء المنصات التعليمية، لوحات التحكم، والمتاجر الإلكترونية.
             </p>
-            <a href="https://wa.me/201128381838" class="btn-cta" target="_blank">تواصل واتساب مباشرة</a>
+            <a href="https://wa.me/201128381838" class="btn-cta" target="_blank">تواصل واتساب</a>
         </section>
 
-        <h3 class="section-title">ماذا أقدم لك؟</h3>
+        <h3 class="section-title">مجالات الخبرة</h3>
         <div class="services-grid">
             <div class="service-card">
-                <h3>💻 تطوير المواقع</h3>
-                <p>بناء مواقع متكاملة، سريعة، وآمنة. متخصص في المنصات التعليمية وأنظمة إدارة المحتوى.</p>
+                <h3>💻 برمجة خاصة</h3>
+                <p>تطوير مواقع من الصفر باستخدام أحدث التقنيات لضمان السرعة والأمان.</p>
             </div>
             <div class="service-card">
-                <h3>🔧 أدوات الويب (Tools)</h3>
-                <p>برمجة أدوات خاصة تقوم بوظائف محددة، وربط المواقع ببعضها (API Integration).</p>
+                <h3>🔗 API & Tools</h3>
+                <p>بناء أدوات ويب مساعدة وربط الأنظمة ببعضها (Integration).</p>
             </div>
             <div class="service-card">
-                <h3>🎨 جرافيك ديزاين</h3>
-                <p>تصميم شعارات، هويات بصرية، وكروت دعوة ومناسبات بلمسة إبداعية.</p>
+                <h3>🎨 UI/UX Design</h3>
+                <p>تصميم واجهات عصرية تركز على تجربة المستخدم وجماليات الهوية.</p>
             </div>
         </div>
 
-        <h3 class="section-title">أبرز الأعمال</h3>
-        <ul class="portfolio-list">
-            <li class="portfolio-item">
-                <span><span class="check-icon">✔</span> منصة <strong>Full Mark</strong> التعليمية</span>
-                <span style="font-size: 0.8rem; background: #eee; padding: 3px 8px; border-radius: 4px;">منصة كورسات</span>
-            </li>
-            <li class="portfolio-item">
-                <span><span class="check-icon">✔</span> أداة <strong>Snap-Tik</strong></span>
-                <span style="font-size: 0.8rem; background: #eee; padding: 3px 8px; border-radius: 4px;">أداة ويب</span>
-            </li>
-            <li class="portfolio-item">
-                <span><span class="check-icon">✔</span> <strong>مواقع تجارة إلكترونية</strong> متنوعة</span>
-                <span style="font-size: 0.8rem; background: #eee; padding: 3px 8px; border-radius: 4px;">E-Commerce</span>
-            </li>
-        </ul>
+        <h3 class="section-title">أحدث المشاريع</h3>
+        <div style="text-align: center;">
+            <div class="portfolio-item">
+                <span>✅ منصة <strong>Full Mark</strong></span>
+                <span class="tag">Education</span>
+            </div>
+            <div class="portfolio-item">
+                <span>✅ أداة <strong>Snap-Tik</strong></span>
+                <span class="tag">Tool</span>
+            </div>
+            <div class="portfolio-item">
+                <span>✅ متجر <strong>Tech Store</strong></span>
+                <span class="tag">E-Commerce</span>
+            </div>
+        </div>
 
         <footer>
             <p>للتواصل: 01128381838</p>
-            <p>&copy; 2026 جميع الحقوق محفوظة للمصمم أحمد محمد</p>
+            <p>&copy; 2026 جميع الحقوق محفوظة</p>
         </footer>
     </div>
 
@@ -186,30 +197,34 @@
     </a>
 
     <script>
-        // 1. كود الشبكة المتحركة (Particle Network)
+        // 1. إعدادات الشبكة المتحركة
         const canvas = document.getElementById('networkCanvas');
         const ctx = canvas.getContext('2d');
         let w, h, particles;
-        const particleColor = 'rgba(37, 211, 102, 0.6)'; // لون أخضر تقني خفيف
-        const lineColor = 'rgba(37, 211, 102,'; 
+        
+        // ألوان الشبكة: خليط بين السماوي والأخضر ليتناسب مع الأسود
+        const particleColor = 'rgba(0, 255, 200, 0.5)'; 
+        const lineColor = 'rgba(0, 255, 200,'; 
 
+        // دالة تحديث الحجم لتأخذ حجم الشاشة بالكامل
         function resize() {
-            w = canvas.width = canvas.parentElement.offsetWidth;
-            h = canvas.height = canvas.parentElement.offsetHeight;
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
         }
 
         class Particle {
             constructor() {
                 this.x = Math.random() * w;
                 this.y = Math.random() * h;
-                this.vx = (Math.random() - 0.5) * 1.5;
-                this.vy = (Math.random() - 0.5) * 1.5;
-                this.size = Math.random() * 2;
+                this.vx = (Math.random() - 0.5) * 1; // سرعة بطيئة وهادئة
+                this.vy = (Math.random() - 0.5) * 1;
+                this.size = Math.random() * 2 + 1;
             }
             update() {
                 this.x += this.vx; this.y += this.vy;
-                if (this.x > w || this.x < 0) this.vx *= -1;
-                if (this.y > h || this.y < 0) this.vy *= -1;
+                // عند الخروج من الشاشة يعود من الجهة الأخرى
+                if (this.x > w) this.x = 0; else if (this.x < 0) this.x = w;
+                if (this.y > h) this.y = 0; else if (this.y < 0) this.y = h;
             }
             draw() {
                 ctx.beginPath();
@@ -222,7 +237,8 @@
         function init() {
             resize();
             particles = [];
-            let count = window.innerWidth < 768 ? 40 : 90;
+            // زيادة عدد النقاط لأن الشاشة أصبحت سوداء بالكامل
+            let count = window.innerWidth < 768 ? 50 : 100;
             for (let i = 0; i < count; i++) particles.push(new Particle());
         }
 
@@ -232,9 +248,10 @@
                 p.update(); p.draw();
                 for (let j = i + 1; j < particles.length; j++) {
                     let d = Math.hypot(p.x - particles[j].x, p.y - particles[j].y);
-                    if (d < 100) {
+                    // رسم الخطوط عند الاقتراب
+                    if (d < 120) {
                         ctx.beginPath();
-                        ctx.strokeStyle = lineColor + (1 - d/100) + ')';
+                        ctx.strokeStyle = lineColor + (1 - d/120) + ')';
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -245,18 +262,18 @@
             requestAnimationFrame(animate);
         }
 
-        window.addEventListener('resize', init);
+        window.addEventListener('resize', () => { resize(); init(); });
         init();
         animate();
 
-        // 2. كود منع السرقة (Anti-Theft)
-        document.addEventListener('contextmenu', e => e.preventDefault()); // منع كليك يمين
+        // 2. كود الحماية (Anti-Theft)
+        document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = e => {
-            if(e.keyCode == 123) return false; // F12
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Inspect
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // View Source
+            if(e.keyCode == 123) return false; 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; 
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; 
         };
     </script>
 </body>
-  </html>
-  
+                                                 </html>
+                                                 
