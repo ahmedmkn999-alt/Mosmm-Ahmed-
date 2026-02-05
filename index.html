@@ -9,7 +9,7 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
     <title>المصمم أحمد محمد | خبير أمن معلومات ومطور ويب</title>
-    <meta name="description" content="أحمد محمد، مطور ويب وخبير في تأمين الشبكات والسيرفرات. بناء مواقع مؤمنة ضد الاختراق بأحدث تقنيات الحماية.">
+    <meta name="description" content="أحمد محمد، مطور ويب وخبير في تأمين الشبكات والسيرفرات.">
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -35,45 +35,46 @@
 
         /* الهيدر */
         header {
-            padding: 50px 20px; text-align: center;
+            padding: 40px 20px 60px; /* زيادة المساحة السفلية للأزرار */
+            text-align: center;
             background: linear-gradient(to bottom, rgba(0, 20, 40, 0.9), transparent);
         }
         h1 { font-size: 2.5rem; margin: 0; font-weight: 900; color: #fff; letter-spacing: 1px; }
         .subtitle { font-size: 1.1rem; color: #00ffcc; margin-top: 5px; font-weight: bold; text-shadow: 0 0 10px rgba(0, 255, 204, 0.5); }
 
-        /* الكروت */
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-        
-        .glass-card {
-            background: rgba(15, 15, 20, 0.7); backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 255, 204, 0.1); /* إطار نيون خفيف */
-            padding: 40px; border-radius: 16px; margin-bottom: 40px; text-align: center;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .glass-card h2 { color: #fff; margin-top: 0; font-size: 1.8rem; }
-        .bio-text { color: #ccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px; }
-        .highlight { color: #00ffcc; font-weight: bold; }
-
-        /* أزرار التواصل الجديدة */
-        .contact-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        /* أزرار التواصل (في الهيدر) */
+        .header-buttons { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
         
         .btn {
             display: flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 12px 25px; border-radius: 50px; text-decoration: none;
+            padding: 10px 25px; border-radius: 50px; text-decoration: none;
             font-weight: bold; color: #fff; transition: transform 0.3s, box-shadow 0.3s;
-            min-width: 160px;
+            font-size: 0.95rem;
         }
 
         .btn-call {
-            background: linear-gradient(45deg, #FFD700, #FFA500); /* ذهبي فخم */
+            background: linear-gradient(45deg, #FFD700, #FFA500);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-            color: #000; /* النص أسود ليكون واضحاً على الذهبي */
+            color: #000; 
         }
         .btn-telegram { background: linear-gradient(45deg, #229ED9, #0088cc); box-shadow: 0 0 15px rgba(34, 158, 217, 0.3); }
         .btn-whatsapp { background: linear-gradient(45deg, #25D366, #128C7E); box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
 
         .btn:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        /* الكروت */
+        .container { max-width: 1000px; margin: -30px auto 0; padding: 20px; position: relative; z-index: 2; }
+        
+        .glass-card {
+            background: rgba(15, 15, 20, 0.7); backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 204, 0.1);
+            padding: 40px; border-radius: 16px; margin-bottom: 40px; text-align: center;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-card h2 { color: #fff; margin-top: 0; font-size: 1.8rem; }
+        .bio-text { color: #ccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 0; }
+        .highlight { color: #00ffcc; font-weight: bold; }
 
         /* الخدمات */
         .services-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
@@ -107,6 +108,12 @@
     <header>
         <h1>المصمم أحمد محمد</h1>
         <p class="subtitle">خبير أمن سيبراني & مطور ويب شامل</p>
+        
+        <div class="header-buttons">
+            <a href="tel:+201128381838" class="btn btn-call">📞 اتصال مباشر</a>
+            <a href="https://t.me/Ahmedddd50" class="btn btn-telegram" target="_blank">✈️ Telegram</a>
+            <a href="https://wa.me/201128381838" class="btn btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
     </header>
 
     <div class="container">
@@ -118,18 +125,6 @@
                 عندما أعمل على مشروعك، فأنا أضمن لك موقعاً ليس فقط جذاباً وسريعاً، بل <span class="highlight">قلعة رقمية</span> يصعب اختراقها. 
                 أقوم بفحص الثغرات، تشفير البيانات، وحماية السيرفرات من الهجمات المتقدمة.
             </p>
-
-            <div class="contact-buttons">
-                <a href="tel:+201128381838" class="btn btn-call">
-                    📞 اتصال مباشر
-                </a>
-                <a href="https://t.me/Ahmedddd50" class="btn btn-telegram" target="_blank">
-                    ✈️ Telegram
-                </a>
-                <a href="https://wa.me/201128381838" class="btn btn-whatsapp" target="_blank">
-                    💬 WhatsApp
-                </a>
-            </div>
         </section>
 
         <h3 style="text-align:center; color:#fff; margin-top:50px;">لماذا تختارني؟</h3>
@@ -173,8 +168,6 @@
         const canvas = document.getElementById('networkCanvas');
         const ctx = canvas.getContext('2d');
         let w, h, particles;
-        
-        // لون الشبكة: أخضر نيون سايبر (Cyber Green)
         const particleColor = 'rgba(0, 255, 204, 0.5)'; 
         const lineColor = 'rgba(0, 255, 204,'; 
 
@@ -213,7 +206,7 @@
 
         window.addEventListener('resize', () => { resize(); init(); }); init(); animate();
         
-        // Anti-Theft Protection
+        // Anti-Theft
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = e => { if(e.keyCode == 123) return false; };
     </script>
